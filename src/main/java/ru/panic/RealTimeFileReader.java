@@ -13,8 +13,8 @@ public class RealTimeFileReader extends Application {
     @Override
     public void start(Stage primaryStage) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Выберите .txt файл");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Текстовые файлы", "*.txt"));
+        fileChooser.setTitle("Select .txt file");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Txt files", "*.txt"));
 
         File selectedFile = fileChooser.showOpenDialog(primaryStage);
         if (selectedFile == null) {
@@ -26,7 +26,7 @@ public class RealTimeFileReader extends Application {
             return;
         }
 
-        System.out.println("Чтение файла в реальном времени...");
+        System.out.println("Reading a file in real time...");
         new Thread(() -> {
             watchFileInRealTime(path);
         }).start();
